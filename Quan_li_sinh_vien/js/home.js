@@ -3,7 +3,7 @@ let count_update = 0;
 
 let students = [
 	{
-		LuaChon: "<input type='checkbox' />",
+		LuaChon: '<input type="checkbox" id="txtLuaChon" name="selectMore"/>',
 		MaSV: "A123",
 		HoTen: "Tran Thi Anh",
 		Tuoi: 19,
@@ -66,7 +66,7 @@ let LuuSinhVien = function () {
 	let ngaysinh = document.getElementById("txtDate").value;
 	// Ở đây sau khi lấy được giá trị ngày nhập vào ta tách chuối thành các phần tử nhỏ bằng hàm split()
 	// rồi đảo ngược thứ tự bằng hàm reverse() rồi chuyển vào hàm mới bằng join();
-	ngaysinh = ngaysinh.split('').reverse().join('');
+	ngaysinh = ngaysinh.split('-').reverse().join('-');
 	// Sau đó ta thay thế kí tự '-' mặc định thành '/' bằng hàm replace() hoặc replaceAll();
 	ngaysinh = ngaysinh.replace(/-/g, "/");
 
@@ -189,13 +189,13 @@ function suaHocSinh(maSV) {
 
 function UpdateSinhVien() {
 	let luaChon_1 = document.getElementById("txtLuaChon").innerHTML;
-	luaChon_1 = '<input type="checkbox" id="txtLuaChon"/>' ;
+	luaChon_1 = '<input type="checkbox" id="txtLuaChon" name="selectMore"/>' ;
 	let luaChon = luaChon_1;
 	let maSV = document.getElementById("txtMaSV").value;
 	let hoTen = document.getElementById("txtHoTen").value;
 	let tuoi = document.getElementById("txtTuoi").value;
 	let ngaysinh = document.getElementById("txtDate").value;
-	ngaysinh = ngaysinh.split('').reverse().join('');
+	ngaysinh = ngaysinh.split('-').reverse().join('-');
 	ngaysinh = ngaysinh.replace(/-/g, "/");
 
 	let gioitinh = "";
@@ -247,13 +247,23 @@ function UpdateSinhVien() {
 
 
 // Chưa hoàn thiện :))
-function deleteAllSV() {
-	let checkAll = false;
-	if(confirm(`Bạn có muốn xóa các học sinh đã chọn không?`)) {
+// Ý tưởng : tạo ra một thuộc tính ở thẻ input có giá trị là MaSV
+// Kiểm tra xem thẻ inout được check hay không
+// Sau đó check students[i].LuaChon.checked nếu có thì sẽ viết lại thẻ input có thuộc tính mới bằng MaSV rồi lưu vào một mảng
 
-		for (var i = 0; i < students.length; i++) {
-			checkAll = document.getElementsByTagName("selectMore").checked;
-			if(checkAll) {
+
+// luaChon_1 = '<input type="checkbox" id="txtLuaChon" name="selectMore" maSVIndex="${maSV}"/>'
+// kiểm tra vòng lặp với điều kiện 
+// if(document.getElementsByTagName("selectMore")[i].checked) {
+// 	if(document.getElementsByTagName("selectMore")[i] == student.MaSV.toUpperCase())
+// }
+function deleteAllSV() {
+	if(confirm(`Bạn có muốn xóa các học sinh đã chọn không?`)) {
+		let lengthStd = students.length;
+		let checkIndex = false;
+		for (var i = 0; i < lengthStd; i++) {
+			checkIndex = document.getElementsByName("selectMore")[i].checked;
+			if(checkIndex) {
 				students.splice(i, 1);
 			}
 		}

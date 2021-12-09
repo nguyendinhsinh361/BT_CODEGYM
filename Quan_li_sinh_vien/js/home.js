@@ -4,12 +4,12 @@ let count_update = 0;
 let students = [
 	{
 		LuaChon: '<input type="checkbox" id="txtLuaChon" name="selectMore"/>',
-		MaSV: "A123",
-		HoTen: "Tran Thi Anh",
+		MaSV: "AT17G",
+		HoTen: "Nguyễn Đình Sinh",
 		Tuoi: 19,
-		NgaySinh: "04/06/2000",
-		GioiTinh: "Nữ",
-		DiaChi: "Xóm 5, Tổ 10, Hà Nội",
+		NgaySinh: "03/07/2002",
+		GioiTinh: "Nam",
+		DiaChi: "Nam Hải, Nam Trực, Nam Định",
 	},
 ];
 //khai báo hàm genStudentTable: mục đích để vẽ ra các thẻ HTML để hiển thị bên trong thẻ tbody có ID=studentTbody
@@ -24,7 +24,7 @@ let genStudentTable = function () {
 		let rowItems = "";
 
 		//vòng lặp
-		for (var i = 0; i < students.length; i++) {
+		for (let i = 0; i < students.length; i++) {
 			let student = students[i]; // lấy ra student cụ thể trong mảng students
 			let rowItem = `<tr>
 				<td>${student.LuaChon}</td>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>In ra các số nguyên tố nhỏ hơn 10000</h2>
+    <button id="show" onclick="showPrime();">Show Prime</button>
+    <table border="1">
+        <tbody id="primeElement">
+
+        </tbody>
+    </table>
+</body>
+<script>
+    // hàm kiểm tra xem số đấy có phải là số nguyên tố hay không ???
+    // Nếu chia hết thì trả về true
+    function isPrime(number) {
+        if(number < 2) return false;
+        for(let i = 2; i <= Math.sqrt(number) ; i++) {
+            if(number % i == 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+    
+    // Hàm có chức năng đưa các số nguyên tố vào mảng mới;
+    function findPrime() {
+        let arr = [];
+        for(let i = 0 ; i <= 10000 ; i++) {
+            if(isPrime(i)) {
+                arr.push(i);
+            }
+        }
+        return arr;
+    }
+    let arrPrime = findPrime();
+
+    function showPrime() {
+        let i = 0;
+        const snt = document.getElementById('primeElement');
+        let showResult = ``;
+        
+        for(let prime of arrPrime) {
+            if(i%20 == 0) {
+                showResult += '<tr>';
+            }
+            showResult += `<td>${prime}</td>`;
+
+            if(i%20 == 19) {
+                showResult += '</tr>';
+                i = -1;
+            }
+            i++;
+        }
+        snt.innerHTML = showResult;
+    }
+    
+    // document.getElementById("show").addEventListener("click", showPrime);
+</script>
+</html>

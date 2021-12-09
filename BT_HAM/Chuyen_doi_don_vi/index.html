@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Chuyển đổi cơ số</h2>
+    <label for="">
+        Meter:
+        <input id="meter" type="text" placeholder="Nhập vào meters" oninput="convertFeet(this.value)">
+    </label>
+    <label for="">
+        Sang Feet:
+        <span id="showFeet"></span>
+    </label>
+    <br><hr>
+    <label for="">
+        Feet:
+        <input id="foot" type="text" placeholder="Nhập vào feet" oninput="convertMeter(this.value)">
+    </label>
+    <label for="">
+        Sang Meters:
+        <span id="showMeters"></span>
+    </label>
+</body>
+<script>
+    function convertMeter(foot) {
+        foot = parseFloat(foot);
+        document.getElementById('showMeters').innerHTML = 0.305*foot;
+    }
+
+    function convertFeet(meter) {
+        meter = parseFloat(meter);
+        document.getElementById('showFeet').innerHTML = 3.279*meter;
+    }
+</script>
+</html>

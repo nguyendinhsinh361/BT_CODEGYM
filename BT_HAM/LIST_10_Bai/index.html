@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Kiểm tra từ đối xứng</h2>
+    <label for="">
+        Chuỗi của bạn:
+        <input id="text" type="text" placeholder="Nhập vào từ cần kiểm tra">
+    </label>
+    <button id="wordTest">Kiểm tra</button>
+</body>
+<script>
+    
+    function isPalindrome(textTest) {
+        let isCheck = false;
+        for(let i = 0 ; i < textTest.length/2 ; i++) {
+            if(textTest[i] != textTest[textTest.length-i-1]) {
+                isCheck = false;
+                break;
+            }else {
+                isCheck = true;
+            }
+        }
+        return isCheck;
+    }
+
+    function show() {
+        let textValue = document.getElementById("text").value;
+        if(isPalindrome(textValue)) {
+            alert("Chuỗi của bạn đối xứng");
+        }else {
+            alert("Chuỗi của bạn không đối xứng")
+        }
+    }
+    document.getElementById("wordTest").addEventListener("click", show);
+</script>
+</html>

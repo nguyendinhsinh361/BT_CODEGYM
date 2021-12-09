@@ -32,4 +32,4 @@ switch(Chi) {
     case 11: Chi = " Mùi";
 }
 
-alert("Năm 2" + year + " trong âm lịch là năm " + Can + Chi);
+alert("Năm " + year + " trong âm lịch là năm " + Can + Chi);

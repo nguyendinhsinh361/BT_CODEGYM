@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Tìm Giá Trị Nhỏ Nhất Trong Mảng</h2>
+    <div>
+        
+    </div>
+</body>
+<script>
+    const arr1 = [7, 12, 6, 9, 20, 56, 89];
+    const arr2 = [7, -1, -1, 9, 20, 56, 89];
+    const arr3 = [];
+    const arr4 = [0, 0, 0, 0, 0, 0];
+
+    function indexMinArray(arr) {
+        if(arr.length == 0)
+            return -1;
+
+        let min = arr[0];
+        let indexMin = 0;
+
+        for(i = 1; i < arr.length; i++){
+            if(arr[i] < min){
+                min = arr[i]
+                indexMin = i;
+            }
+        }
+        return indexMin;
+    }
+    if(indexMinArray(arr3) != -1) {
+        alert("Phần tử nhỏ nhất trong mảng là : " + arr3[indexMinArray(arr3)]); 
+    }else {
+        alert("Mảng đang xét rỗng !")
+    }
+
+</script>
+</html>

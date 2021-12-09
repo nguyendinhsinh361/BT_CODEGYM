@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Kiểm thử</h2>
+    <button id="test">TEST</button>
+</body>
+<script>
+    let number1 = Number(prompt("Nhập vào số thứ nhất: "));
+    let number2 = Number(prompt("Nhập vào số thứ hai: "));
+    function sumNumber(number1, number2) {
+        if(number1 <= number2) {
+            return number1+number2;
+        }else {
+            return null;
+        }
+    }
+    function showResult() {
+        let sum = sumNumber(number1, number2);
+        if(sum != null) {
+            alert(`Tổng của 2 số là: ${sum}`);
+        }else {
+            alert(`Vui lòng nhập số thứ nhất nhỏ hơn số thứ hai`);
+        }
+    }
+    
+    
+    document.getElementById("test").addEventListener("click", showResult);
+</script>
+</html>
